@@ -19,7 +19,20 @@ class App extends Component {
   onClickChnageState = () => {
     this.setState({ name: 'Ong' })
   }
-  
+
+  onChnageState = (event) => {
+    this.setState({ name: event.target.value })
+  }
+
+  fnChange = (data) => {
+    this.setState({ name: data })
+  }
+
+  awrChange = (awr) => {
+    this.setState({ name: awr})
+  }
+
+
   render() {
 
     return (
@@ -31,6 +44,12 @@ class App extends Component {
         <Person name={this.state.name} >{this.state.age}</Person >
         <Person name={this.state.person[0].name} >{this.state.person[0].age}</Person >
         <p onClick={this.onClickChnageState}>Click Change State</p>
+
+        <input type="text" onChange={this.onChnageState}></input>
+        <br />
+        <p>After click btn = {this.state.name}</p>
+        <button onClick={this.fnChange.bind(this,this.state.person[0].age)}>bind change</button>
+        <button onClick={() => this.awrChange(this.state.person[1].age)}>bind change</button>
       </div>
     );
   }
