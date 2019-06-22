@@ -11,7 +11,8 @@ class App extends Component {
     return (
       <div>
         <p>Hello world</p>
-        <Person />
+        <Person name = {'A'}/>
+        <Person >props children</Person >
       </div>
     );
   }
