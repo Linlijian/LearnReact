@@ -34,7 +34,11 @@ class App extends Component {
 
 
   render() {
-
+// this are css in line
+const colorBtn = {
+  color: 'green',
+  backgroundColor: 'yellow'
+}
     return (
       <div>
         <p>Hello world</p>
@@ -48,7 +52,7 @@ class App extends Component {
         <input type="text" onChange={this.onChnageState}></input>
         <br />
         <p>After click btn = {this.state.name}</p>
-        <button onClick={this.fnChange.bind(this,this.state.person[0].age)}>bind change</button>
+        <button style={colorBtn} onClick={this.fnChange.bind(this,this.state.person[0].age)}>bind change</button>
         <button onClick={() => this.awrChange(this.state.person[1].age)}>bind change</button>
       </div>
     );
