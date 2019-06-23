@@ -13,7 +13,8 @@ class App extends Component {
       { name: 'Meiio', age: 19 },
       { name: 'Pori', age: 9 },
       { name: 'Kiro', age: 10 }
-    ]
+    ],
+    isShowDiv: false
   }
 
   onClickChnageState = () => {
@@ -29,30 +30,42 @@ class App extends Component {
   }
 
   awrChange = (awr) => {
-    this.setState({ name: awr})
+    this.setState({ name: awr })
   }
 
+  onClickShowDiv = () => {
+    const show = this.state.isShowDiv
+    this.setState({ isShowDiv: !show })
+  }
 
   render() {
-// this are css in line
-const colorBtn = {
-  color: 'green',
-  backgroundColor: 'yellow'
-}
+    // this are css in line
+    const colorBtn = {
+      color: 'green',
+      backgroundColor: 'yellow'
+    }
     return (
       <div>
         <p>Hello world</p>
-        <Person name={'A'} />
-        <Person >props children</Person >
+        <button onClick={this.onClickShowDiv}>Show Div</button>
+        {
+          this.state.isShowDiv === true ?
+          <div>
+            <Person name={'A'} />
+            <Person >props children</Person >
 
-        <Person name={this.state.name} >{this.state.age}</Person >
-        <Person name={this.state.person[0].name} >{this.state.person[0].age}</Person >
+            <Person name={this.state.name} >{this.state.age}</Person >
+            <Person name={this.state.person[0].name} >{this.state.person[0].age}</Person >
+          </div>
+          : null
+        }
+
         <p onClick={this.onClickChnageState}>Click Change State</p>
 
         <input type="text" onChange={this.onChnageState}></input>
         <br />
         <p>After click btn = {this.state.name}</p>
-        <button style={colorBtn} onClick={this.fnChange.bind(this,this.state.person[0].age)}>bind change</button>
+        <button style={colorBtn} onClick={this.fnChange.bind(this, this.state.person[0].age)}>bind change</button>
         <button onClick={() => this.awrChange(this.state.person[1].age)}>bind change</button>
       </div>
     );
