@@ -44,22 +44,26 @@ class App extends Component {
       color: 'green',
       backgroundColor: 'yellow'
     }
+
+    let person = null
+
+    if (this.state.isShowDiv) {
+      person = (
+        <div>
+          <Person name={'A'} />
+          <Person >props children</Person >
+
+          <Person name={this.state.name} >{this.state.age}</Person >
+          <Person name={this.state.person[0].name} >{this.state.person[0].age}</Person >
+        </div>
+      )
+    }
+
     return (
       <div>
         <p>Hello world</p>
         <button onClick={this.onClickShowDiv}>Show Div</button>
-        {
-          this.state.isShowDiv === true ?
-          <div>
-            <Person name={'A'} />
-            <Person >props children</Person >
-
-            <Person name={this.state.name} >{this.state.age}</Person >
-            <Person name={this.state.person[0].name} >{this.state.person[0].age}</Person >
-          </div>
-          : null
-        }
-
+        {person}
         <p onClick={this.onClickChnageState}>Click Change State</p>
 
         <input type="text" onChange={this.onChnageState}></input>
