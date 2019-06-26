@@ -10,9 +10,9 @@ class App extends Component {
     name: 'A',
     age: 23,
     person: [
-      { name: 'Meiio', age: 19 },
-      { name: 'Pori', age: 9 },
-      { name: 'Kiro', age: 10 }
+      { id: 'asw', name: 'Meiio', age: 19 },
+      { id: 'wqd', name: 'Pori', age: 9 },
+      { id: 'dfr', name: 'Kiro', age: 10 }
     ],
     isShowDiv: false
   }
@@ -41,7 +41,10 @@ class App extends Component {
       person = (
         <div>
           {this.state.person.map((person, index) => {
-            return <Person name={person.name} click={() => this.onChickDelete(index)}>{person.age}</Person>
+            return <Person 
+            name={person.name} 
+            click={() => this.onChickDelete(index)}
+            key={person.id}>{person.age}</Person>
           })}
         </div>
       )
