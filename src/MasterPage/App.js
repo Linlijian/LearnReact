@@ -55,6 +55,10 @@ class App extends Component {
 
           <Person name={this.state.name} >{this.state.age}</Person >
           <Person name={this.state.person[0].name} >{this.state.person[0].age}</Person >
+
+          {this.state.person.map(person => {
+            return <Person name={person.name} >{person.age}</Person>
+          })}
         </div>
       )
     }
