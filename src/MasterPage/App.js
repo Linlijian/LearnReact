@@ -28,6 +28,32 @@ class App extends Component {
     this.setState({ person: person })
   }
 
+  onChangeName = (event, id) => {
+    const perosIndex = this.state.person.findIndex(p => {
+      //p is mean parameter name from person
+      return p.id === id
+    })
+
+    //copy sperson aray by index id
+    const perosnNew = {
+      ...this.state.person[perosIndex]
+    }
+
+    //set value
+    perosnNew.name = event.target.value
+
+    //compy person type aray
+    const person = [...this.state.person]
+
+    //set values by index id
+    person[perosIndex] = perosnNew
+
+
+    //set state
+    this.setState({ person: person })
+
+  }
+
   render() {
     // this are css in line
     const colorBtn = {
@@ -41,10 +67,11 @@ class App extends Component {
       person = (
         <div>
           {this.state.person.map((person, index) => {
-            return <Person 
-            name={person.name} 
-            click={() => this.onChickDelete(index)}
-            key={person.id}>{person.age}</Person>
+            return <Person
+              name={person.name}
+              click={() => this.onChickDelete(index)}
+              key={person.id}
+              change={(event) => this.onChangeName(event, person.id)} />
           })}
         </div>
       )
