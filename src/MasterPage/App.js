@@ -17,25 +17,15 @@ class App extends Component {
     isShowDiv: false
   }
 
-  onClickChnageState = () => {
-    this.setState({ name: 'Ong' })
-  }
-
-  onChnageState = (event) => {
-    this.setState({ name: event.target.value })
-  }
-
-  fnChange = (data) => {
-    this.setState({ name: data })
-  }
-
-  awrChange = (awr) => {
-    this.setState({ name: awr })
-  }
-
   onClickShowDiv = () => {
     const show = this.state.isShowDiv
     this.setState({ isShowDiv: !show })
+  }
+
+  onChickDelete = (personIndex) => {
+    const person = this.state.person
+    person.splice(personIndex, 1)
+    this.setState({ person: person })
   }
 
   render() {
@@ -50,14 +40,8 @@ class App extends Component {
     if (this.state.isShowDiv) {
       person = (
         <div>
-          <Person name={'A'} />
-          <Person >props children</Person >
-
-          <Person name={this.state.name} >{this.state.age}</Person >
-          <Person name={this.state.person[0].name} >{this.state.person[0].age}</Person >
-
-          {this.state.person.map(person => {
-            return <Person name={person.name} >{person.age}</Person>
+          {this.state.person.map((person, index) => {
+            return <Person name={person.name} click={() => this.onChickDelete(index)}>{person.age}</Person>
           })}
         </div>
       )
@@ -68,13 +52,7 @@ class App extends Component {
         <p>Hello world</p>
         <button onClick={this.onClickShowDiv}>Show Div</button>
         {person}
-        <p onClick={this.onClickChnageState}>Click Change State</p>
 
-        <input type="text" onChange={this.onChnageState}></input>
-        <br />
-        <p>After click btn = {this.state.name}</p>
-        <button style={colorBtn} onClick={this.fnChange.bind(this, this.state.person[0].age)}>bind change</button>
-        <button onClick={() => this.awrChange(this.state.person[1].age)}>bind change</button>
       </div>
     );
   }
