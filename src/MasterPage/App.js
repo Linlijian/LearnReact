@@ -3,6 +3,8 @@ import logo from '../logo.svg';
 import '../MasterCss/App.css';
 import '../Person/Person';
 import Person from '../Person/Person';
+import Validate from '../Validate/Validate';
+import CharCard from '../CharCard/CharCard';
 
 class App extends Component {
   // this state area
@@ -14,7 +16,9 @@ class App extends Component {
       { id: 'wqd', name: 'Pori', age: 9 },
       { id: 'dfr', name: 'Kiro', age: 10 }
     ],
-    isShowDiv: false
+    isShowDiv: false,
+    isShowAssignment: false,
+    inputValues: ''
   }
 
   onClickShowDiv = () => {
@@ -22,10 +26,26 @@ class App extends Component {
     this.setState({ isShowDiv: !show })
   }
 
+  onClickShowAssignment = () => {
+    const show = this.state.isShowAssignment
+    this.setState({ isShowAssignment: !show })
+  }
+
   onChickDelete = (personIndex) => {
     const person = this.state.person
     person.splice(personIndex, 1)
     this.setState({ person: person })
+  }
+
+  onChickDeleteCard = (index) => {
+    const card = this.state.inputValues.split('')
+    card.splice(index, 1)
+    const newCard = card.join('')
+    this.setState({ inputValues: newCard })
+  }
+
+  inputChangeHendler = (event) => {
+    this.setState({ inputValues: event.target.value })
   }
 
   onChangeName = (event, id) => {
@@ -62,6 +82,7 @@ class App extends Component {
     }
 
     let person = null
+    let Assignment = null
 
     if (this.state.isShowDiv) {
       person = (
@@ -77,12 +98,32 @@ class App extends Component {
       )
     }
 
+    const charList = this.state.inputValues.split('').map((ch, index) => {
+      return <CharCard varchar={ch} key={index} delete={() => this.onChickDeleteCard(index)} />
+    })
+
+    if (this.state.isShowAssignment) {
+      Assignment = (
+        <div>
+          <p>Show assignment</p>
+          <input
+            type='text'
+            onChange={this.inputChangeHendler}
+            value={this.state.inputValues} />
+          <p>{this.state.inputValues}</p>
+          <Validate textLength={this.state.inputValues.length} />
+          {charList}
+        </div>
+      )
+    }
+
     return (
       <div>
         <p>Hello world</p>
         <button onClick={this.onClickShowDiv}>Show Div</button>
+        <button onClick={this.onClickShowAssignment}>Show Assignment</button>
         {person}
-
+        {Assignment}
       </div>
     );
   }
