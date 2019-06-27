@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/LearnReact/static/css/main.f0321706.chunk.css",
+    "main.js": "/LearnReact/static/js/main.b5cf8f63.chunk.js",
+    "main.js.map": "/LearnReact/static/js/main.b5cf8f63.chunk.js.map",
+    "runtime~main.js": "/LearnReact/static/js/runtime~main.a72445d7.js",
+    "runtime~main.js.map": "/LearnReact/static/js/runtime~main.a72445d7.js.map",
+    "static/js/2.bd6dd1d8.chunk.js": "/LearnReact/static/js/2.bd6dd1d8.chunk.js",
+    "static/js/2.bd6dd1d8.chunk.js.map": "/LearnReact/static/js/2.bd6dd1d8.chunk.js.map",
+    "index.html": "/LearnReact/index.html",
+    "precache-manifest.44c8e8a412ec3df0660b2b429f983426.js": "/LearnReact/precache-manifest.44c8e8a412ec3df0660b2b429f983426.js",
+    "service-worker.js": "/LearnReact/service-worker.js",
+    "static/css/main.f0321706.chunk.css.map": "/LearnReact/static/css/main.f0321706.chunk.css.map",
+    "static/media/logo.svg": "/LearnReact/static/media/logo.5d5d9eef.svg"
+  }
+}
