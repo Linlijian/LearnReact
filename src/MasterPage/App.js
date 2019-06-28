@@ -96,6 +96,7 @@ class App extends Component {
           })}
         </div>
       )
+      colorBtn.backgroundColor = 'blue'
     }
 
     const charList = this.state.inputValues.split('').map((ch, index) => {
@@ -115,13 +116,23 @@ class App extends Component {
           {charList}
         </div>
       )
+      colorBtn.backgroundColor = 'red'
+    }
+
+    //let classes = ['red','bold'].join(' ')
+    const classes = []
+    if (this.state.person.length <= 2) {
+      classes.push('red')
+    }
+    if (this.state.inputValues.length > 5) {
+      classes.push('bold')
     }
 
     return (
       <div>
-        <p>Hello world</p>
-        <button onClick={this.onClickShowDiv}>Show Div</button>
-        <button onClick={this.onClickShowAssignment}>Show Assignment</button>
+        <p className={classes.join(' ')}>Hello world</p>
+        <button style={colorBtn} onClick={this.onClickShowDiv}>Show Div</button>
+        <button style={colorBtn} onClick={this.onClickShowAssignment}>Show Assignment</button>
         {person}
         {Assignment}
       </div>
