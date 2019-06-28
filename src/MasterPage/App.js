@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import Radium from 'radium';
 import '../MasterCss/App.css';
 import '../Person/Person';
 import Person from '../Person/Person';
 import Validate from '../Validate/Validate';
 import CharCard from '../CharCard/CharCard';
+
 
 class App extends Component {
   // this state area
@@ -78,7 +79,11 @@ class App extends Component {
     // this are css in line
     const colorBtn = {
       color: 'green',
-      backgroundColor: 'yellow'
+      backgroundColor: 'yellow',
+      ':hover': {
+        backgroundColor: 'red',
+        color: 'yellow'
+      }
     }
 
     let person = null
@@ -97,6 +102,11 @@ class App extends Component {
         </div>
       )
       colorBtn.backgroundColor = 'blue'
+      colorBtn[':hover'] = {
+        backgroundColor: 'lightblue',
+        color: 'black'
+      }
+
     }
 
     const charList = this.state.inputValues.split('').map((ch, index) => {
@@ -117,6 +127,10 @@ class App extends Component {
         </div>
       )
       colorBtn.backgroundColor = 'red'
+      colorBtn[':hover'] = {
+        backgroundColor: 'lightred',
+        color: 'black'
+      }
     }
 
     //let classes = ['red','bold'].join(' ')
@@ -131,7 +145,7 @@ class App extends Component {
     return (
       <div>
         <p className={classes.join(' ')}>Hello world</p>
-        <button style={colorBtn} onClick={this.onClickShowDiv}>Show Div</button>
+        <button style={colorBtn} key="1" onClick={this.onClickShowDiv}>Show Div</button>
         <button style={colorBtn} onClick={this.onClickShowAssignment}>Show Assignment</button>
         {person}
         {Assignment}
@@ -142,4 +156,4 @@ class App extends Component {
 
 
 
-export default App;
+export default Radium(App);
