@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Radium, { StyleRoot } from 'radium';
-import '../MasterCss/App.css';
+import css from '../MasterCss/App.css';
 import '../Person/Person';
 import Person from '../Person/Person';
 import Validate from '../Validate/Validate';
@@ -136,14 +135,13 @@ class App extends Component {
     //let classes = ['red','bold'].join(' ')
     const classes = []
     if (this.state.person.length <= 2) {
-      classes.push('red')
+      classes.push(css.red)
     }
     if (this.state.inputValues.length > 5) {
-      classes.push('bold')
+      classes.push(css.bold)
     }
 
     return (
-      <StyleRoot>
       <div>
         <p className={classes.join(' ')}>Hello world</p>
         <button style={colorBtn} key="1" onClick={this.onClickShowDiv}>Show Div</button>
@@ -151,11 +149,10 @@ class App extends Component {
         {person}
         {Assignment}
       </div>
-      </StyleRoot>
     );
   }
 }
 
 
 
-export default Radium(App);
+export default App;
