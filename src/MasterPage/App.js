@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 import '../MasterCss/App.css';
 import '../Person/Person';
 import Person from '../Person/Person';
@@ -143,6 +143,7 @@ class App extends Component {
     }
 
     return (
+      <StyleRoot>
       <div>
         <p className={classes.join(' ')}>Hello world</p>
         <button style={colorBtn} key="1" onClick={this.onClickShowDiv}>Show Div</button>
@@ -150,6 +151,7 @@ class App extends Component {
         {person}
         {Assignment}
       </div>
+      </StyleRoot>
     );
   }
 }
