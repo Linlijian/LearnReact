@@ -1,5 +1,5 @@
 import React from 'react';
-import Radium from 'radium'
+
 const Validate = (props) => {
     let validateLength = 'Text too short'
     if (props.textLength > 5) {
@@ -10,4 +10,4 @@ const Validate = (props) => {
     </div>
 }
 
-export default Radium(Validate)
+export default Validate

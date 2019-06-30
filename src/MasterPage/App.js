@@ -76,17 +76,12 @@ class App extends Component {
 
   render() {
     // this are css in line
-    const colorBtn = {
-      color: 'green',
-      backgroundColor: 'yellow',
-      ':hover': {
-        backgroundColor: 'red',
-        color: 'yellow'
-      }
-    }
+
 
     let person = null
     let Assignment = null
+    let btnColor = ''
+
 
     if (this.state.isShowDiv) {
       person = (
@@ -100,12 +95,7 @@ class App extends Component {
           })}
         </div>
       )
-      colorBtn.backgroundColor = 'blue'
-      colorBtn[':hover'] = {
-        backgroundColor: 'lightblue',
-        color: 'black'
-      }
-
+      btnColor = css.yellow
     }
 
     const charList = this.state.inputValues.split('').map((ch, index) => {
@@ -125,11 +115,7 @@ class App extends Component {
           {charList}
         </div>
       )
-      colorBtn.backgroundColor = 'red'
-      colorBtn[':hover'] = {
-        backgroundColor: 'lightred',
-        color: 'black'
-      }
+        btnColor = css.Red
     }
 
     //let classes = ['red','bold'].join(' ')
@@ -142,10 +128,10 @@ class App extends Component {
     }
 
     return (
-      <div>
+      <div className={css.HelloWorld}>
         <p className={classes.join(' ')}>Hello world</p>
-        <button style={colorBtn} key="1" onClick={this.onClickShowDiv}>Show Div</button>
-        <button style={colorBtn} onClick={this.onClickShowAssignment}>Show Assignment</button>
+        <button className={btnColor} onClick={this.onClickShowDiv}>Show Div</button>
+        <button className={btnColor} onClick={this.onClickShowAssignment}>Show Assignment</button>
         {person}
         {Assignment}
       </div>
