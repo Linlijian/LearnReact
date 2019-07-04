@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import css from './App.css';
-import '../components/Person/Person';
-import Person from '../components/Person/Person';
 import Validate from '../components/Validate/Validate';
-import CharCard from '../components/CharCard/CharCard';
-
+import CharCard from '../components/Assignment/CharCard/CharCard';
+import Persons from '../components/Person/Persons/Persons';
 
 class App extends Component {
   // this state area
@@ -86,13 +84,11 @@ class App extends Component {
     if (this.state.isShowDiv) {
       person = (
         <div>
-          {this.state.person.map((person, index) => {
-            return <Person
-              name={person.name}
-              click={() => this.onChickDelete(index)}
-              key={person.id}
-              change={(event) => this.onChangeName(event, person.id)} />
-          })}
+         <Persons 
+         persons = {this.state.person}
+         click = {this.onChickDelete}
+         change = {this.onChangeName}
+         />
         </div>
       )
       btnColor = css.yellow
