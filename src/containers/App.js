@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import css from '../MasterCss/App.css';
-import '../Person/Person';
-import Person from '../Person/Person';
-import Validate from '../Validate/Validate';
-import CharCard from '../CharCard/CharCard';
+import css from './App.css';
+import '../components/Person/Person';
+import Person from '../components/Person/Person';
+import Validate from '../components/Validate/Validate';
+import CharCard from '../components/CharCard/CharCard';
 
 
 class App extends Component {
