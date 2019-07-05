@@ -125,7 +125,7 @@ class App extends Component {
 
     return (
       <div className={css.HelloWorld}>
-        <p className={classes.join(' ')}>Hello world</p>
+        <p className={classes.join(' ')}>{this.props.titile}</p>
         <button className={btnColor} onClick={this.onClickShowDiv}>Show Div</button>
         <button className={btnColor} onClick={this.onClickShowAssignment}>Show Assignment</button>
         {person}
