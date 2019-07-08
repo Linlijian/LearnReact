@@ -5,6 +5,11 @@ import CharCard from '../components/Assignment/CharCard/CharCard';
 import Persons from '../components/Person/Persons/Persons';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    console.log('[App.js] constructor')
+  }
+
   // this state area
   state = {
     name: 'A',
@@ -18,6 +23,18 @@ class App extends Component {
     isShowAssignment: false,
     inputValues: ''
   }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps')
+    return state
+  }
+
+
+
+  componentDidMount() {
+    console.log('[App.js] componentDidMount')
+  }
+
 
   onClickShowDiv = () => {
     const show = this.state.isShowDiv
@@ -74,7 +91,7 @@ class App extends Component {
 
   render() {
     // this are css in line
-
+    console.log('[App.js] render')
 
     let person = null
     let Assignment = null
@@ -84,11 +101,11 @@ class App extends Component {
     if (this.state.isShowDiv) {
       person = (
         <div>
-         <Persons 
-         persons = {this.state.person}
-         click = {this.onChickDelete}
-         change = {this.onChangeName}
-         />
+          <Persons
+            persons={this.state.person}
+            click={this.onChickDelete}
+            change={this.onChangeName}
+          />
         </div>
       )
       btnColor = css.yellow
@@ -111,7 +128,7 @@ class App extends Component {
           {charList}
         </div>
       )
-        btnColor = css.Red
+      btnColor = css.Red
     }
 
     //let classes = ['red','bold'].join(' ')

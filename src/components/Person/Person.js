@@ -3,7 +3,7 @@ import css from './Person.css';
 
 
 const Person = (props) => {
-
+    console.log('[Person.js] rendering...')
     return (
         <div className={css.Person}>
             <p onClick={props.click}>Person this here. My name {props.name}</p>
