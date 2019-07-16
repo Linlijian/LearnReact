@@ -36,6 +36,17 @@ class App extends Component {
   }
 
 
+  shouldComponentUpdate(prevProps, nextState) {
+    console.log('[App.js] shouldComponentUpdate -- จะทำหน้าที่คอยตัดสินว่าควรจะทำการ render component ซ้ำหรือไม่')
+    return true
+  }
+
+
+  componentDidUpdate() {
+    console.log('[App.js] componentDidUpdate -- จะทำงานเมื่อมีการ update state หรือ props โดยจะทำงานหลังจาก render เสร็จแล้ว')
+  }
+
+
   onClickShowDiv = () => {
     const show = this.state.isShowDiv
     this.setState({ isShowDiv: !show })
