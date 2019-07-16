@@ -32,7 +32,7 @@ class App extends Component {
 
 
   componentDidMount() {
-    console.log('[App.js] componentDidMount')
+    console.log('[App.js] componentDidMount -- จะทำงานเมื่อ Component นั้น ๆ ทำการ render เสร็จแล้ว')
   }
 
 
